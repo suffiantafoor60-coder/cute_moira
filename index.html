@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Suffian ♥ Moira</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600;700&display=swap">
+<style>
+:root{--bg1:#fff0f6;--bg2:#ffd6e8;--ink:#6b1c43;--pink:#ff5fa2;--deep:#d81b78;--card:rgba(255,255,255,.7);--soft:#ff9ec8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#3a0f26;--bg2:#5a1438;--ink:#ffe3f0;--card:rgba(90,20,56,.6)}}
+:root[data-theme="dark"]{--bg1:#3a0f26;--bg2:#5a1438;--ink:#ffe3f0;--card:rgba(90,20,56,.6)}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;font-family:Quicksand,system-ui,sans-serif;color:var(--ink);background:linear-gradient(160deg,var(--bg1),var(--bg2));background-attachment:fixed;min-height:100vh;overflow-x:hidden;cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><text y='26' font-size='26'>💖</text></svg>") 16 16,auto}
+a,button,.flip,.jar{cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><text y='26' font-size='26'>💗</text></svg>") 16 16,pointer}
+canvas{position:fixed;inset:0;pointer-events:none;z-index:1}
+.script{font-family:'Great Vibes',cursive}
+#gate{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,var(--bg1),var(--bg2));padding:20px;transition:opacity .8s}
+.box{background:var(--card);backdrop-filter:blur(8px);border:2px solid var(--soft);border-radius:28px;padding:34px 26px;max-width:380px;width:100%;text-align:center;box-shadow:0 20px 50px rgba(216,27,120,.25)}
+.box h1{font-size:2.6rem;margin:.2em 0;color:var(--deep)}
+input{width:100%;padding:14px 18px;border-radius:99px;border:2px solid var(--soft);font:inherit;font-size:1.05rem;text-align:center;background:#fff;color:#6b1c43;outline:none}
+input:focus{border-color:var(--deep)}
+.btn{margin-top:14px;padding:13px 30px;border:0;border-radius:99px;background:linear-gradient(135deg,var(--pink),var(--deep));color:#fff;font:700 1rem Quicksand,sans-serif;box-shadow:0 8px 20px rgba(216,27,120,.35);transition:transform .2s}
+.btn:hover{transform:scale(1.07)}
+#err{min-height:1.4em;margin-top:10px;color:var(--deep);font-weight:600}
+.shake{animation:sh .4s}
+@keyframes sh{25%{transform:translateX(-10px)}75%{transform:translateX(10px)}}
+#site{display:none;position:relative;z-index:2}
+section{max-width:900px;margin:0 auto;padding:60px 20px;text-align:center}
+h2{font-size:2.4rem;color:var(--deep);margin:0 0 .3em}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.hero h1{font-size:clamp(3rem,12vw,6.5rem);margin:0;color:var(--deep);text-shadow:0 4px 20px rgba(255,95,162,.4)}
+.eyes{font-size:4rem;animation:pulse 2s infinite}
+@keyframes pulse{50%{transform:scale(1.15)}}
+.typed{min-height:3.2em;font-size:1.2rem;max-width:560px}
+.count{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.count div{background:var(--card);border:2px solid var(--soft);border-radius:20px;padding:16px 20px;min-width:80px}
+.count b{display:block;font-size:2rem;color:var(--deep)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.flip{height:150px;perspective:800px}
+.flip>div{position:relative;width:100%;height:100%;transition:transform .7s;transform-style:preserve-3d}
+.flip.on>div{transform:rotateY(180deg)}
+.flip span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:14px;border-radius:20px;backface-visibility:hidden;border:2px solid var(--soft);font-weight:600}
+.f{background:linear-gradient(135deg,var(--pink),var(--deep));color:#fff;font-size:2rem!important}
+.b{background:var(--card);transform:rotateY(180deg)}
+.tl{max-width:560px;margin:auto;text-align:left;border-left:4px solid var(--pink);padding-left:22px}
+.tl div{background:var(--card);border-radius:18px;padding:14px 18px;margin:0 0 18px;position:relative}
+.tl div:before{content:"♥";position:absolute;left:-36px;top:12px;color:var(--deep);background:var(--bg1);border-radius:50%}
+.jar{font-size:5rem;display:inline-block;transition:transform .3s}
+.jar:hover{transform:rotate(-12deg) scale(1.1)}
+#note{min-height:3em;font-size:1.2rem;margin-top:12px;font-weight:600}
+.letter{background:var(--card);border:2px dashed var(--soft);border-radius:24px;padding:28px;max-width:620px;margin:auto;line-height:1.8}
+.tools{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:10;display:flex;gap:8px}
+.tools button{width:46px;height:46px;border-radius:50%;border:0;background:var(--card);font-size:1.3rem;box-shadow:0 4px 14px rgba(216,27,120,.3)}
+footer{padding:40px 20px 80px;text-align:center}
+</style>
+</head>
+<body>
+<canvas id="fx"></canvas>
+
+<div id="gate">
+  <div class="box" id="box">
+    <div style="font-size:3rem">🔐💗</div>
+    <h1 class="script">For My Girl</h1>
+    <p>A little secret made just for you.<br>Type the password to enter.</p>
+    <input id="pw" type="password" placeholder="Password" autocomplete="off">
+    <button class="btn" id="go">Open my heart 💌</button>
+    <div id="err"></div>
+  </div>
+</div>
+
+<div id="site">
+  <section class="hero">
+    <div class="eyes">✨👀✨</div>
+    <p>Today, a beautiful story began…</p>
+    <h1 class="script">Moira</h1>
+    <div class="script" style="font-size:2.4rem;color:var(--deep)">my girlfriend 💖</div>
+    <p class="typed" id="typed"></p>
+    <button class="btn" onclick="burst(innerWidth/2,innerHeight/2,40)">Send you a hug 🤗</button>
+    <p style="margin-top:30px">↓ scroll, my love ↓</p>
+  </section>
+
+  <section>
+    <h2 class="script">Our Time Together</h2>
+    <p>Counting every second since we became us — 9 November 2026</p>
+    <div class="count" id="count"></div>
+  </section>
+
+  <section>
+    <h2 class="script">Our Little Story</h2>
+    <div class="tl">
+      <div><b>❄️ Snapchat, hello.</b><br>Two strangers, one tiny message, and everything changed.</div>
+      <div><b>💬 Endless talking.</b><br>Messages turned into smiles, and smiles into something real.</div>
+      <div><b>💖 Today.</b><br>You said yes. You became my girlfriend. Best day ever.</div>
+      <div><b>🌍 Someday soon…</b><br>We meet, and I finally see those bright eyes in person.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="script">Why You’re Special</h2>
+    <p>Tap a card 💗</p>
+    <div class="grid" id="cards"></div>
+  </section>
+
+  <section>
+    <h2 class="script">Jar of Sweet Wishes</h2>
+    <p>Tap the jar for a note from me</p>
+    <div class="jar" id="jar">🍯</div>
+    <div id="note"></div>
+  </section>
+
+  <section>
+    <h2 class="script">My Promises</h2>
+    <div class="grid" id="prom"></div>
+  </section>
+
+  <section>
+    <h2 class="script">A Letter For You</h2>
+    <div class="letter">
+      <p>My dearest Moira,</p>
+      <p>I have never held your hand or seen you in person, yet you already feel like home. Your eyes are so bright and full of hope that even through a screen they light up my world. You are ultra cute, ultra pretty, and ultra kind, and I feel so lucky that Snapchat brought you to me.</p>
+      <p>I’m 17, you’re 14, and I don’t care about anything except being the person who makes you smile every day. Thank you for choosing me. I’ll choose you every single day.</p>
+      <p class="script" style="font-size:2rem;margin:0;color:var(--deep)">Forever yours, Suffian 💕</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="script" style="font-size:2.6rem;color:var(--deep)">Suffian ♥ Moira</div>
+    <p>9 November 2026 — the day it all began</p>
+    <button class="btn" onclick="rain()">Shower of love 💘</button>
+  </footer>
+
+  <div class="tools">
+    <button id="mus" title="Music">🎵</button>
+    <button id="th" title="Theme">🌙</button>
+  </div>
+</div>
+
+<script>
+var PW="moira";
+var cv=document.getElementById("fx"),cx=cv.getContext("2d"),P=[];
+function rs(){cv.width=innerWidth;cv.height=innerHeight}rs();addEventListener("resize",rs);
+var E=["💖","💗","💕","🌸","✨","💘"];
+function add(x,y,v,e){P.push({x:x,y:y,vx:(Math.random()-.5)*v,vy:-Math.random()*v-1,l:1,e:e||E[Math.random()*E.length|0],s:14+Math.random()*16})}
+function burst(x,y,n){for(var i=0;i<n;i++)add(x,y,10)}
+function rain(){for(var i=0;i<60;i++)setTimeout(function(){P.push({x:Math.random()*innerWidth,y:-20,vx:0,vy:-2-Math.random()*2,l:1.4,e:E[Math.random()*E.length|0],s:18+Math.random()*14,g:1})},i*50)}
+function loop(){cx.clearRect(0,0,cv.width,cv.height);
+ if(Math.random()<.04)add(Math.random()*innerWidth,innerHeight+10,2);
+ for(var i=P.length-1;i>=0;i--){var p=P[i];
+  if(p.g){p.y+=-p.vy;p.l-=.004}else{p.x+=p.vx;p.y+=p.vy;p.vy+=.03;p.l-=.01}
+  if(p.l<=0||p.y>innerHeight+40){P.splice(i,1);continue}
+  cx.globalAlpha=Math.min(1,p.l);cx.font=p.s+"px serif";cx.fillText(p.e,p.x,p.y)}
+ requestAnimationFrame(loop)}
+loop();
+addEventListener("pointermove",function(e){if(Math.random()<.5)add(e.clientX,e.clientY,1.5,"💗")});
+addEventListener("pointerdown",function(e){burst(e.clientX,e.clientY,8)});
+
+function unlock(){
+ if(document.getElementById("pw").value.trim().toLowerCase()===PW){
+  var g=document.getElementById("gate");g.style.opacity=0;
+  setTimeout(function(){g.style.display="none"},800);
+  document.getElementById("site").style.display="block";
+  burst(innerWidth/2,innerHeight/2,80);rain();typeIt();
+ }else{
+  var b=document.getElementById("box");b.classList.remove("shake");void b.offsetWidth;b.classList.add("shake");
+  document.getElementById("err").textContent="Oops, that’s not it, my love 💔 Try again!"}
+}
+document.getElementById("go").onclick=unlock;
+document.getElementById("pw").onkeydown=function(e){if(e.key==="Enter")unlock()};
+
+var msg="Welcome, my love. This whole page is a tiny celebration of the girl with the brightest, most hopeful eyes in the world. 💕",ti=0;
+function typeIt(){var t=document.getElementById("typed");if(ti<=msg.length){t.textContent=msg.slice(0,ti++);setTimeout(typeIt,40)}}
+
+var start=new Date(2026,10,9,0,0,0);
+function tick(){var d=Math.max(0,Date.now()-start),s=d/1000|0;
+ var v=[[s/86400|0,"Days"],[(s/3600|0)%24,"Hours"],[(s/60|0)%60,"Minutes"],[s%60,"Seconds"]];
+ document.getElementById("count").innerHTML=v.map(function(x){return"<div><b>"+x[0]+"</b>"+x[1]+"</div>"}).join("")}
+tick();setInterval(tick,1000);
+
+var R=[["👀","Your eyes shine with hope"],["🌸","You are ultra cute and pretty"],["😊","Your smile makes my day"],["💬","Talking to you is my favorite thing"],["🌙","You make every night softer"],["🦋","You give me butterflies"],["🎀","You are sweet and innocent"],["💎","You are one in a million"]];
+document.getElementById("cards").innerHTML=R.map(function(r){return'<div class="flip"><div><span class="f">'+r[0]+'</span><span class="b">'+r[1]+'</span></div></div>'}).join("");
+document.querySelectorAll(".flip").forEach(function(f){f.onclick=function(){f.classList.toggle("on")}});
+
+var W=["You are the best thing that happened to my Snapchat.","I can’t wait to hear your laugh for real someday.","You’re my favorite notification, always.","Your hopeful eyes make me believe in tomorrow.","Being your boyfriend is my proudest title.","Distance is just a number. You are my everything.","I want to be your safe place, always.","Every day with you is a gift."];
+var wi=0;document.getElementById("jar").onclick=function(e){document.getElementById("note").textContent="💌 "+W[wi++%W.length];burst(e.clientX,e.clientY,14)};
+
+var PR=["🤝 I will always be honest with you","🌷 I will respect you and treat you gently","📱 I will make time for you every day","🤗 I will cheer you up when you’re sad","🌍 I will work hard to meet you one day","💞 I will love you more each day"];
+document.getElementById("prom").innerHTML=PR.map(function(p){return'<div class="b" style="border-radius:20px;padding:20px;border:2px solid var(--soft);background:var(--card);font-weight:600">'+p+'</div>'}).join("");
+
+var th=document.getElementById("th");th.onclick=function(){var d=document.documentElement,dk=d.getAttribute("data-theme")==="dark"||(!d.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme:dark)").matches);d.setAttribute("data-theme",dk?"light":"dark");th.textContent=dk?"🌙":"☀️"};
+
+var ac,on=false,tm;
+function note(f,t,d){var o=ac.createOscillator(),g=ac.createGain();o.type="sine";o.frequency.value=f;g.gain.setValueAtTime(.001,t);g.gain.exponentialRampToValueAtTime(.08,t+.05);g.gain.exponentialRampToValueAtTime(.001,t+d);o.connect(g);g.connect(ac.destination);o.start(t);o.stop(t+d)}
+function mel(){var n=[523,659,784,659,587,698,880,698],t=ac.currentTime;n.forEach(function(f,i){note(f,t+i*.5,.9)});tm=setTimeout(mel,4000)}
+document.getElementById("mus").onclick=function(){
+ try{if(!ac)ac=new(window.AudioContext||window.webkitAudioContext)();
+ on=!on;this.textContent=on?"🔊":"🎵";if(on){mel()}else{clearTimeout(tm)}}catch(e){}};
+</script>
+</body>
+</html>
